@@ -1,0 +1,100 @@
+﻿<Window x:Class="ClienteCalabozosDragones.VentanaInicio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Menú Inicial" Height="600" Width="850" ResizeMode="CanResize"
+        HorizontalAlignment="Center">
+    <Window.Background>
+        <ImageBrush ImageSource="Recursos/Fondo_CrearCuenta.png" Stretch="UniformToFill" />
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Crear Sala -->
+        <Button Content="Crear Sala" Width="227" Height="45" Grid.Row="1" Grid.Column="1" 
+                Click="BtnCrearSalaClick" FontFamily="Rockwell Extra Bold"
+                BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF220901"/>
+                    <GradientStop Color="#FF621708" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF941B0C"/>
+                    <GradientStop Color="#FFBC3908" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+
+        <!-- Añadir Amigos -->
+        <Button Content="Añadir Amigos" Width="227" Height="45" Grid.Row="2" Grid.Column="1" 
+                Click="BtnAnadirAmigos" FontFamily="Rockwell Extra Bold"
+                BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF220901"/>
+                    <GradientStop Color="#FF621708" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF941B0C"/>
+                    <GradientStop Color="#FFBC3908" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+
+        <!-- Modificar Perfil -->
+        <Button Content="Modificar Perfil" Width="227" Height="45" Grid.Row="3" Grid.Column="1" 
+                Click="BtnModificarPerfilClick"  FontFamily="Rockwell Extra Bold"
+                BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF220901"/>
+                    <GradientStop Color="#FF621708" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF941B0C"/>
+                    <GradientStop Color="#FFBC3908" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+
+        <!-- Historial de Partida -->
+        <Button Content="Historial de Partida" Width="227" Height="45" Grid.Row="4" Grid.Column="1" 
+                Click="BtnHistorialPartidaClick"  FontFamily="Rockwell Extra Bold"
+                BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF220901"/>
+                    <GradientStop Color="#FF621708" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF941B0C"/>
+                    <GradientStop Color="#FFBC3908" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+
+    </Grid>
+</Window>
