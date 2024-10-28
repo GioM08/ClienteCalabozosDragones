@@ -76,7 +76,7 @@ namespace ClienteCalabozosDragones
 
             if (cliente.VerificarInicioSesion(cuenta))
             {
-                VentanaInicio ventanaInicio = new VentanaInicio();
+                VentanaInicio ventanaInicio = new VentanaInicio(cuenta.Contrasena, cuenta.Correo);
                 ventanaInicio.Show();
                 this.Close();
             }

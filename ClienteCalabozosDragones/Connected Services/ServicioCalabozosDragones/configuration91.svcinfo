@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="rYMjM0Tqpo+bmECIo2ldoDaSKmR7f+0M3GbbR5NeuDo=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="72OuZLKc1WXoIH6H33W6srpHYS7Dtmpz+HdtX07fa2Q=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IGestionCuenta">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IGestionCuenta" contract="ServicioCalabozosDragones.IGestionCuenta" bindingType="netTcpBinding" address="net.tcp://localhost:8090/ServiciosCalabozosDragones" bindingConfiguration="NetTcpBinding_IGestionCuenta">
+    <endpoint name="NetTcpBinding_IGestionCuenta" contract="ServicioCalabozosDragones.IGestionCuenta" bindingType="netTcpBinding" address="net.tcp://localhost:8090/" bindingConfiguration="NetTcpBinding_IGestionCuenta">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8090/ServiciosCalabozosDragones</serializedValue>
+          <serializedValue>net.tcp://localhost:8090/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -1,7 +1,9 @@
 ﻿using ClienteCalabozosDragones.ServicioCalabozosDragones;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,16 +20,26 @@ namespace ClienteCalabozosDragones
     /// <summary>
     /// Lógica de interacción para VentanaCrearCuenta.xaml
     /// </summary>
+    /// 
+   
     public partial class VentanaCrearCuenta : Window
     {
       
         readonly SolidColorBrush ColorRojoClaro = Constantes.ColorRojoClaro;
         readonly SolidColorBrush colorAmarillo = Constantes.ColorAmarillo;
+        
+        public ObservableCollection<Foto> Items { get; set; }
+
 
         public VentanaCrearCuenta()
         {
             InitializeComponent();
+            FotosListBox.ItemsSource = Constantes.CargarImagenes();
         }
+       
+       
+
+
 
         private void TbNombre_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -110,23 +122,45 @@ namespace ClienteCalabozosDragones
 
         private void BtnCrearCuentaClick(object sender, RoutedEventArgs e)
         {
-            var cuenta = new Cuenta()
+            try
             {
-                Apodo = TbApodo.Text.ToString(),
-                Contrasena = PsContrasena.Password.ToString(),
-                Correo = TbCorreo.Text.ToString(),
-                Nombre = TbNombre.Text.ToString(),
-            };
+                var cuenta = new Cuenta()
+                {
+                    Apodo = TbApodo.Text,
+                    Contrasena = PsContrasena.Password,
+                    Correo = TbCorreo.Text,
+                    Nombre = TbNombre.Text,
+                    IdFoto = Constantes.ObtenerIdFotoSeleccionada(FotosListBox)
+                };
 
-            ServicioCalabozosDragones.GestionCuentaClient cliente = new ServicioCalabozosDragones.GestionCuentaClient();
-            if (cliente.AgregarCuenta(cuenta))
-            {
-                Constantes.MostrarVentanaEmergente("Cuenta agregada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                var cliente = new ServicioCalabozosDragones.GestionCuentaClient();
+
+                var respuesta = cliente.AgregarCuenta(cuenta);
+
+                if (respuesta == "correoRepetido")
+                {
+                    Constantes.MostrarVentanaEmergente("Ya esta registrado el correo, porfavor ingresa otro", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (respuesta == "apodoRepetido")
+                {
+                    Constantes.MostrarVentanaEmergente("Ya esta registrado el apodo, porfavor ingresa otro", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+                else if (respuesta == "guardadoExito")
+                {
+                    Constantes.MostrarVentanaEmergente("Cuenta registrada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            else
+            catch(InvalidOperationException ex)
             {
-                Constantes.MostrarVentanaEmergente("No se pudo agregar la cuenta.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Constantes.MostrarVentanaEmergente("Porfavor selecciona una foto de perfil.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                Console.WriteLine(ex);
             }
+            
+                
+            
         }
+
+
     }
 }

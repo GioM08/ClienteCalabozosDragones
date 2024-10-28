@@ -9,7 +9,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
+
+            <!-- Fila para la imagen y el texto -->
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -21,11 +24,25 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Espacio para la imagen -->
+        <Image x:Name="ImagenPerfil" Source="{Binding ImagenRuta}" 
+               Grid.Row="0" Grid.Column="1" 
+               Margin="60,40,58,0" Height="100" VerticalAlignment="Top"/>
+
+        <!-- Texto debajo de la imagen -->
+        <TextBlock x:Name="TbApodo" Text="Bienvenido" 
+                   FontSize="24" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,10,0,10" 
+                   Grid.Row="1" Grid.Column="1" FontFamily="Rockwell" FontWeight="Bold" Foreground="#FFBC3908" />
+
         <!-- Crear Sala -->
-        <Button Content="Crear Sala" Width="227" Height="45" Grid.Row="1" Grid.Column="1" 
+        <Button Content="Crear Sala" Width="227" Height="45" Grid.Row="2" Grid.Column="1" 
                 Click="BtnCrearSalaClick" FontFamily="Rockwell Extra Bold"
                 BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
             <Button.Background>
@@ -43,7 +60,7 @@
         </Button>
 
         <!-- Añadir Amigos -->
-        <Button Content="Añadir Amigos" Width="227" Height="45" Grid.Row="2" Grid.Column="1" 
+        <Button Content="Añadir Amigos" Width="227" Height="45" Grid.Row="3" Grid.Column="1" 
                 Click="BtnAnadirAmigos" FontFamily="Rockwell Extra Bold"
                 BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
             <Button.Background>
@@ -61,8 +78,8 @@
         </Button>
 
         <!-- Modificar Perfil -->
-        <Button Content="Modificar Perfil" Width="227" Height="45" Grid.Row="3" Grid.Column="1" 
-                Click="BtnModificarPerfilClick"  FontFamily="Rockwell Extra Bold"
+        <Button Content="Modificar Perfil" Width="227" Height="45" Grid.Row="4" Grid.Column="1" 
+                Click="BtnModificarPerfilClick" FontFamily="Rockwell Extra Bold"
                 BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -79,8 +96,8 @@
         </Button>
 
         <!-- Historial de Partida -->
-        <Button Content="Historial de Partida" Width="227" Height="45" Grid.Row="4" Grid.Column="1" 
-                Click="BtnHistorialPartidaClick"  FontFamily="Rockwell Extra Bold"
+        <Button Content="Historial de Partida" Width="227" Height="45" Grid.Row="5" Grid.Column="1" 
+                Click="BtnHistorialPartidaClick" FontFamily="Rockwell Extra Bold"
                 BorderBrush="#FFF6AA1C" FontSize="16" HorizontalAlignment="Center" Margin="0,5,0,5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

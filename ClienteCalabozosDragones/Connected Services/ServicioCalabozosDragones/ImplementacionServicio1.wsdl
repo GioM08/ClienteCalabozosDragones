@@ -31,9 +31,9 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8080/ServiciosCalabozosDragones/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8080/ServiciosCalabozosDragones/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/ServiciosCalabozosDragones/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiciosCalabozosDragones" />
+      <xsd:import schemaLocation="http://localhost:8080/JuegoCalabozosYDragones?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/JuegoCalabozosYDragones?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/JuegoCalabozosYDragones?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ServiciosCalabozosDragones" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGestionCuenta_AgregarCuenta_InputMessage">
@@ -48,6 +48,30 @@
   <wsdl:message name="IGestionCuenta_VerificarInicioSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:VerificarInicioSesionResponse" />
   </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerRuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRuta" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerRuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuenta" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCuentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerFoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFoto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ObtenerFoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ModificarCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarCuenta" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCuenta_ModificarCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarCuentaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGestionCuenta">
     <wsdl:operation name="AgregarCuenta">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/AgregarCuenta" message="tns:IGestionCuenta_AgregarCuenta_InputMessage" />
@@ -56,6 +80,22 @@
     <wsdl:operation name="VerificarInicioSesion">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/VerificarInicioSesion" message="tns:IGestionCuenta_VerificarInicioSesion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCuenta/VerificarInicioSesionResponse" message="tns:IGestionCuenta_VerificarInicioSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerRuta" message="tns:IGestionCuenta_ObtenerRuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerRutaResponse" message="tns:IGestionCuenta_ObtenerRuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerCuenta" message="tns:IGestionCuenta_ObtenerCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerCuentaResponse" message="tns:IGestionCuenta_ObtenerCuenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerFoto" message="tns:IGestionCuenta_ObtenerFoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCuenta/ObtenerFotoResponse" message="tns:IGestionCuenta_ObtenerFoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCuenta/ModificarCuenta" message="tns:IGestionCuenta_ModificarCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCuenta/ModificarCuentaResponse" message="tns:IGestionCuenta_ModificarCuenta_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGestionCuenta" type="tns:IGestionCuenta">
@@ -79,12 +119,48 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerRuta">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCuenta/ObtenerRuta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuenta">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCuenta/ObtenerCuenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFoto">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCuenta/ObtenerFoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCuenta">
+      <soap12:operation soapAction="http://tempuri.org/IGestionCuenta/ModificarCuenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ImplementacionServicio">
     <wsdl:port name="NetTcpBinding_IGestionCuenta" binding="tns:NetTcpBinding_IGestionCuenta">
-      <soap12:address location="net.tcp://localhost:8090/ServiciosCalabozosDragones" />
+      <soap12:address location="net.tcp://localhost:8090/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8090/ServiciosCalabozosDragones</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8090/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>DESKTOP-F6NRV9S\Giovi</Upn>
         </Identity>

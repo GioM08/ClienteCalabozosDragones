@@ -32,6 +32,9 @@ namespace ClienteCalabozosDragones.ServicioCalabozosDragones {
         private string CorreoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdFotoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -84,6 +87,19 @@ namespace ClienteCalabozosDragones.ServicioCalabozosDragones {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdFoto {
+            get {
+                return this.IdFotoField;
+            }
+            set {
+                if ((this.IdFotoField.Equals(value) != true)) {
+                    this.IdFotoField = value;
+                    this.RaisePropertyChanged("IdFoto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Nombre {
             get {
                 return this.NombreField;
@@ -106,21 +122,122 @@ namespace ClienteCalabozosDragones.ServicioCalabozosDragones {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Foto", Namespace="http://schemas.datacontract.org/2004/07/ServiciosCalabozosDragones")]
+    [System.SerializableAttribute()]
+    public partial class Foto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RutaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ruta {
+            get {
+                return this.RutaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RutaField, value) != true)) {
+                    this.RutaField = value;
+                    this.RaisePropertyChanged("Ruta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioCalabozosDragones.IGestionCuenta")]
     public interface IGestionCuenta {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/AgregarCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/AgregarCuentaResponse")]
-        bool AgregarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
+        string AgregarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/AgregarCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/AgregarCuentaResponse")]
-        System.Threading.Tasks.Task<bool> AgregarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
+        System.Threading.Tasks.Task<string> AgregarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/VerificarInicioSesion", ReplyAction="http://tempuri.org/IGestionCuenta/VerificarInicioSesionResponse")]
         bool VerificarInicioSesion(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/VerificarInicioSesion", ReplyAction="http://tempuri.org/IGestionCuenta/VerificarInicioSesionResponse")]
         System.Threading.Tasks.Task<bool> VerificarInicioSesionAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerRuta", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerRutaResponse")]
+        string ObtenerRuta(int idFoto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerRuta", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerRutaResponse")]
+        System.Threading.Tasks.Task<string> ObtenerRutaAsync(int idFoto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerCuentaResponse")]
+        ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta ObtenerCuenta(string correo, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerCuentaResponse")]
+        System.Threading.Tasks.Task<ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta> ObtenerCuentaAsync(string correo, string contrasena);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerFoto", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerFotoResponse")]
+        string ObtenerFoto(ClienteCalabozosDragones.ServicioCalabozosDragones.Foto foto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ObtenerFoto", ReplyAction="http://tempuri.org/IGestionCuenta/ObtenerFotoResponse")]
+        System.Threading.Tasks.Task<string> ObtenerFotoAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Foto foto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ModificarCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/ModificarCuentaResponse")]
+        string ModificarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuentaModificacion, ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCuenta/ModificarCuenta", ReplyAction="http://tempuri.org/IGestionCuenta/ModificarCuentaResponse")]
+        System.Threading.Tasks.Task<string> ModificarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuentaModificacion, ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -150,11 +267,11 @@ namespace ClienteCalabozosDragones.ServicioCalabozosDragones {
                 base(binding, remoteAddress) {
         }
         
-        public bool AgregarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
+        public string AgregarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
             return base.Channel.AgregarCuenta(cuenta);
         }
         
-        public System.Threading.Tasks.Task<bool> AgregarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
+        public System.Threading.Tasks.Task<string> AgregarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
             return base.Channel.AgregarCuentaAsync(cuenta);
         }
         
@@ -164,6 +281,38 @@ namespace ClienteCalabozosDragones.ServicioCalabozosDragones {
         
         public System.Threading.Tasks.Task<bool> VerificarInicioSesionAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
             return base.Channel.VerificarInicioSesionAsync(cuenta);
+        }
+        
+        public string ObtenerRuta(int idFoto) {
+            return base.Channel.ObtenerRuta(idFoto);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerRutaAsync(int idFoto) {
+            return base.Channel.ObtenerRutaAsync(idFoto);
+        }
+        
+        public ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta ObtenerCuenta(string correo, string contrasena) {
+            return base.Channel.ObtenerCuenta(correo, contrasena);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta> ObtenerCuentaAsync(string correo, string contrasena) {
+            return base.Channel.ObtenerCuentaAsync(correo, contrasena);
+        }
+        
+        public string ObtenerFoto(ClienteCalabozosDragones.ServicioCalabozosDragones.Foto foto) {
+            return base.Channel.ObtenerFoto(foto);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerFotoAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Foto foto) {
+            return base.Channel.ObtenerFotoAsync(foto);
+        }
+        
+        public string ModificarCuenta(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuentaModificacion, ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
+            return base.Channel.ModificarCuenta(cuentaModificacion, cuenta);
+        }
+        
+        public System.Threading.Tasks.Task<string> ModificarCuentaAsync(ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuentaModificacion, ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta cuenta) {
+            return base.Channel.ModificarCuentaAsync(cuentaModificacion, cuenta);
         }
     }
 }

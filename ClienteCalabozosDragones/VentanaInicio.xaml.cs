@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClienteCalabozosDragones.ServicioCalabozosDragones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,34 @@ namespace ClienteCalabozosDragones
     /// </summary>
     public partial class VentanaInicio : Window
     {
-        public VentanaInicio()
+        private readonly ServicioCalabozosDragones.GestionCuentaClient cliente = new ServicioCalabozosDragones.GestionCuentaClient();
+        private readonly string correo;
+        private readonly string contrasena;
+        private Cuenta cuenta;
+
+
+        public VentanaInicio(string contrasena, string correo)
         {
             InitializeComponent();
+            this.contrasena = contrasena;
+            this.correo = correo;
+            
+            ActualizarInterfaz();
+            
+
+        }
+        private void ActualizarInterfaz()
+        {
+            var cuenta = cliente.ObtenerCuenta(correo, contrasena);
+            ImagenPerfil.Source = ObtenerFotoPerfil(cuenta);
+            TbApodo.Text = "Bienvenido " + cuenta.Apodo;
+        }
+
+
+        private BitmapImage ObtenerFotoPerfil(Cuenta cuenta)
+        {   
+            string ruta = cliente.ObtenerRuta(cuenta.IdFoto);
+            return new BitmapImage(new Uri(ruta, UriKind.RelativeOrAbsolute));
         }
 
         private void BtnAnadirAmigos(object sender, RoutedEventArgs e)
@@ -31,7 +57,14 @@ namespace ClienteCalabozosDragones
 
         private void BtnModificarPerfilClick(object sender, RoutedEventArgs e)
         {
-
+            var cuenta = cliente.ObtenerCuenta(correo, contrasena);
+            var ventanaModificar = new VentanaModificarCuenta(cuenta);
+            ventanaModificar.CuentaModificada += (cuentaModificada) =>
+            {
+                this.cuenta = cuentaModificada;
+                ActualizarInterfaz(); // Refresca la interfaz con los datos actualizados
+            };
+            ventanaModificar.ShowDialog();
         }
 
         private void BtnHistorialPartidaClick(object sender, RoutedEventArgs e)

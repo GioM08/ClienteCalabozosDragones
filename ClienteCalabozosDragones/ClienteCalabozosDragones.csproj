@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VentanaModificarCuenta.xaml.cs">
+      <DependentUpon>VentanaModificarCuenta.xaml</DependentUpon>
+    </Compile>
     <Page Include="VentanaCrearCuenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +92,10 @@
       <DependentUpon>VentanaInicioSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VentanaModificarCuenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -108,14 +115,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServicioCalabozosDragones\ImplementacionServicio.wsdl" />
-    <None Include="Connected Services\ServicioCalabozosDragones\item.xsd">
+    <None Include="Connected Services\ServicioCalabozosDragones\ClienteCalabozosDragones.ServicioCalabozosDragones.Cuenta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServicioCalabozosDragones\ImplementacionServicio1.wsdl" />
+    <None Include="Connected Services\ServicioCalabozosDragones\JuegoCalabozosYDragones.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioCalabozosDragones\item1.xsd">
+    <None Include="Connected Services\ServicioCalabozosDragones\JuegoCalabozosYDragones1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServicioCalabozosDragones\item2.xsd">
+    <None Include="Connected Services\ServicioCalabozosDragones\JuegoCalabozosYDragones2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -127,13 +137,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Recursos\Fondo_CrearCuenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Fondo_InicioSesion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServicioCalabozosDragones\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServicioCalabozosDragones\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServicioCalabozosDragones\configuration91.svcinfo" />
@@ -148,10 +161,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recursos\Fondo_CrearCuenta.png" />
+    <Resource Include="Recursos\Astronauta.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Calavera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Dragon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Espada.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Gato.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Guerrero.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recursos\Fondo_InicioSesion.jpg" />
+    <None Include="Connected Services\ServicioCalabozosDragones\JuegoCalabozosYDragones.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
